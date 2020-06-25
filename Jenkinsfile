@@ -2,40 +2,25 @@ pipeline {
    agent any
 
    stages {
-      stage('Checkout from SCM') {
+      stage('Testing') {
          steps {
-            echo 'Get'
+            echo 'Testing'
          }
       }
-      stage('Execute Unit Tests') {
-         steps {
-            echo 'Hello World'
-         }
-      }     
-      stage('Generate Build') {
-         steps {
-            echo 'Hello World'
-         }
-      }
-      stage('Integration Tests') {
-         steps {
-            echo 'Hello World'
+	  
+	  stage('Input') {
+         
+			input {
+             message 'Is testing successful?'
+			}
+			steps {
+			echo 'input'
          }
       }
-      stage('Deploy to Staging and Regression Tests') {
+	  
+      stage('Build') {
          steps {
-            echo 'Hello World'
-         }
-     }
-      
-
-      stage('Deploy to Production') {
-      input {
-                message 'Are you sure you want to deploy to production'
-       }
- 
-         steps {
-            echo 'Hello World'
+            echo 'Build'
          }
       }
    }
