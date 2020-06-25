@@ -11,7 +11,7 @@ pipeline {
 	  stage('Start with the build ') {
          
 			input {
-             message 'can we start with the build, s testing successful?'
+             message 'can we start with the build, is testing successful?'
 			}
 			steps {
 			echo 'Proceed or abort'
