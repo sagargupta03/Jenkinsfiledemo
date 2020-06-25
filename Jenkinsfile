@@ -8,13 +8,13 @@ pipeline {
          }
       }
 	  
-	  stage('Input') {
+	  stage('Start with the build ') {
          
 			input {
-             message 'Is testing successful?'
+             message 'can we start with the build, s testing successful?'
 			}
 			steps {
-			echo 'input'
+			echo 'Proceed or abort'
          }
       }
 	  
