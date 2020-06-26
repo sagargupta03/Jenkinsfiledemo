@@ -1,27 +1,32 @@
-pipeline {
-   agent any
+#Pipeline_with_stage_asking_a_input
 
-   stages {
-      stage('Testing') {
-         steps {
-            echo 'Testing'
-         }
-      }
-	  
-	  stage('Start with the build ') {
-         
-			input {
-             message 'can we start with the build, is testing successful?'
-			}
-			steps {
-			echo 'Proceed or abort'
-         }
-      }
-	  
-      stage('Build') {
-         steps {
-            echo 'Build'
-         }
-      }
-   }
+// Declarative -DSL - Domain specific language //
+pipeline
+{
+	agent any
+	stages
+	{
+		stage('Build') 
+		{
+		steps {
+			echo 'Building..'			
+		      }
+		}
+		stage('Test')
+		{
+		steps {
+		echo 'Testing..'
+		      }
+		}
+		stage('Deploy')
+		{
+                input {
+                message 'Are you sure you want to deploy to production'
+                      }
+		
+                steps {
+		echo 'Deploying....'
+		      }
+		}
+	}
 }
